@@ -1,12 +1,12 @@
 var Testing = function(processingInstance) {
     with (processingInstance) {
 
-        size(700,1100); 
+        size(800,1200); 
         frameRate(30);
         
         // ProgramCodeGoesHere
 
-         var msg= "02.14.22/17:30";       
+         var msg= "02.18.22/13:30";       
 
          var FirstColor = color(0, 0, 0);
          var SecondColor = color(135,10,10);
@@ -17,155 +17,74 @@ var Testing = function(processingInstance) {
          stroke(FirstColor);
          strokeWeight(2);
 
+         const Machine = ["1","2","3","4","5","6","7","8","9","10","11","12 F","12 RD","13 AB","13 AD"];
+         const MachineDesc = ["Leg Press","2","3","Chess Press","Overhead Press","Arm Curl","Arm Extension","Row","9","Leg Extension","Seated Leg Curl","Pectoral Fly","Rear Deltoids","Hip Adduction","Hip Abduction"]
+         const MachineWeight = [50,50,50,50,50,50,50,50,50,50,50,50,50,50,50];
+         const MachineReps = [15,15,15,15,15,15,15,15,15,15,15,15,15,15,15];
+         const MachineSets = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3];
+         const MachineComplete = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+         var Current = 0;
+         var Activity = 0;
+         var chkWeight = 0;
+
          
-         var minLat = 0;
-         var minLong = 0;
-         var maxLat = 0;
-         var maxLong = 0;
-         var lenLat = 0;
-         var lenLong = 0;
-         var ULx = 0;
-         var ULy = 0;
-         var Lx = 0;
-         var Ly = 0;
-         var x1 = 0;
-         var y1 = 0;
-         var x2 = 0;
-         var y2 = 0;
-         var Lat = 0;
-         var Long = 0;
-         var Lat1 = 0;
-         var Long1 = 0;        
-         var Lat2 = 0;
-         var Long2 = 0;
-         var dist=0;
-         var startTrack=0; 
-         var speedDist = [0,0,0,0,0,0,0,0,0,0];
-         var flashSpeed = 0;
-         var flashDistance = 0
-         var speedType = 1;
-         var speedPause = 0;
-         var totalDistance = 0;
-         var totalSpeed = 0;
-         var convertSpeed = [3,180,2.0454545,0.9144,3.29184]
-         var convertDistance = [3,3,0.000568181818,0.9144,0.0009144];
-         var speedLabel = [" ft/sec"," ft/min"," mph"," meters/sec","km/hr"];
-         var distLabel = [" feet"," feet"," miles"," meters"," km"];
-         var speedTotal = 0;
-        const areaLat = [];
-        const areaLong = [];
-        var R = Math.PI/180;
-        var chkLoc = 0;
 
-
-        var getLocation = function() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(savePosition1,displayError,{enableHighAccuracy: true});
-            } else { 
-                console.log("Geolocation is not supported by this browser.");
-            }
-        }
-        var trackLocation = function() {
-            if (navigator.geolocation) {
-                startTrack++;
-                navigator.geolocation.getCurrentPosition(savePosition2,displayError,{enableHighAccuracy: true});
-//                console.log("Lat2, Long2:",Lat2.toFixed(3),Long2.toFixed(3));
-                if(Activity===1) {
-                    distance();
-                }
-            } else { 
-                console.log("Geolocation is not supported by this browser.");
-            }
-        }
-        function savePosition1(position) {
-            console.log("Made it to savePosition1, Activity = ",Activity);
-            if(Activity===1 || Activity===3) {
-                Lat1 = position.coords.latitude;
-                Long1 = position.coords.longitude;           
-                console.log("here at Distance",Lat1.toFixed(3),Long1.toFixed(3));                      
-            }
-            if(Activity===2) {
-                console.log("ready to add lat/long");
-                areaLat.push(position.coords.latitude);
-                areaLong.push(position.coords.longitude); 
-                console.log("here at Area",Count,areaLat[Count].toFixed(3),areaLong[Count].toFixed(3));                      
-                Count++;  
-            }
-        }
-        function savePosition2(position) {
-//            console.log("Made it to savePosition2");
-            Lat2 = position.coords.latitude;
-            Long2 = position.coords.longitude;
-            if(Activity===3) {
-                distance();
-                Lat1 = Lat2;
-                Long1 = Long2;
-                totalDistance = totalDistance + dist;
-                totalSpeed = totalDistance / (startTrack*2);  // yds/sec
-                startTrack++;        
-                if(Count===9) {
-                    flashDistance=0;
-                    for (i=0; i<9; i++) {
-                        speedDist[i]=speedDist[i+1];
-                        flashDistance = flashDistance + speedDist[i+1];
-                    }
-                    speedDist[Count] = dist
-                    flashDistance = flashDistance + dist
-                    flashSpeed = flashDistance/5;  // yds/sec
-                }
-                else {
-                    speedDist[Count] = dist;
-                    Count++;
-                }
-            }           
-        }
-        function displayError(){
-            text("at displayError",600,50);
-            msg="at displayError";
-        }
-
-
-        function distance() {
-//            console.log("Made it to distance",Lat1,Long1,Lat2,Long2);
-            if ((Lat1 == Lat2) && (Long1 == Long2)) {
-                dist=0
-                return dist;
-            }
-            else {
-                var radlat1 = Math.PI * Lat1/180;
-                var radlat2 = Math.PI * Lat2/180;
-                var theta = Long1-Long2;
-                var radtheta = Math.PI * theta/180;
-                dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-                if (dist > 1) {
-                    dist = 1;
-                }
-                dist = Math.acos(dist);
-                dist = dist * 180/Math.PI;
-                dist = dist * 60 * 1.1515 * 5280 / 3;
-                return dist;
-                console.log("Lat1,Long1,Lat2,Long2,dist=",Lat1.toFixed(3),Long1.toFixed(3),Lat2.toFixed(3),Long2.toFixed(3),dist);
-            }
-        }
+            window.localStorage.setItem('MW',JSON.stringify(MachineWeight));
+            window.localStorage.setItem('MR',JSON.stringify(MachineReps));
+            window.localStorage.setItem('MS',JSON.stringify(MachineSets));
 
         selectActivity = function() {
+            if(chkWeight===0) {
+                chkWeight = 1;
+                if(window.localStorage.getItem('MW')!=null) {
+                    var MW1 =JSON.parse(window.localStorage.getItem('MW'));
+                    var MR1 =JSON.parse(window.localStorage.getItem('MR'));
+                    var MS1 =JSON.parse(window.localStorage.getItem('MS'));
+                    for (i=0; i<15; i++) {
+                        MachineWeight[i]=Number(MW1[i]);
+                        MachineReps[i]=Number(MR1[i]);
+                        MachineSets[i]=Number(MS1[i]);
+                    }
+                }
+            }
             background(BackColor);
-            fill(BoxColor);
-            rect(200,200,300,100);
-            rect(200,400,300,100);
-            rect(200,600,300,100);
-            textSize(40);
+            textSize(50);
             textAlign(CENTER);
+            fill(BoxColor);
+            rect(100,20,600,70);
+            fill(SecondColor);
+            text("SELECT CYBEX STATION",400,75);
+
+            for (i=0; i<5; i++) {
+                for (j=0; j<3; j++) {
+                    if (MachineComplete[i+j*5] === 1) {
+                        fill(SelectBoxColor);
+                        rect(25+i*150,100+j*100,150,100);
+                        fill(FirstColor);
+                        text(Machine[i+j*5],100+i*150,170+j*100)
+                    } else {
+                        fill(BoxColor);
+                        rect(25+i*150,100+j*100,150,100);
+                        fill(FirstColor);
+                        text(Machine[i+j*5],100+i*150,170+j*100)
+                    }
+                }
+            }
+            fill(BoxColor);
+            rect(100,450,600,100);
+            rect(100,600,600,100);
             fill(FirstColor);
-            text("Distance",350,270);
-            text("Area",350,470);
-            text("Velocity",350,670);            
+            text("Clear Workout Session",400,520);
+            text("Clear Weights, Reps, Sets",400,670);
         }
 
-        distanceActivity = function() {
-//      Distance Calculation            
+
+//      INDIVIDUAL MACHINE WORKOUT
+        MachineWorkout = function() {          
             background(BackColor);
             fill(BoxColor);
+
+
             rect(100,100,200,100);
             rect(200,450,300,100);
             fill(BackColor);
@@ -328,38 +247,35 @@ var Testing = function(processingInstance) {
 
         mouseClicked = function() {
 
-            if(Activity===0 && mouseX>=200 && mouseX<=500 && mouseY>=200 && mouseY<=300) {
-                Activity = 1;
-            }            
+            if(Activity === 0) {
 
-            if(Activity===0 && mouseX>=200 && mouseX<=500 && mouseY>=400 && mouseY<=500) {
-                Activity = 2;
-                Area=0;
-                sfArea=0;
-                areaLat.splice(0, areaLat.length);
-                areaLong.splice(0, areaLong.length);
-                Count = 0;
-                chkLoc=-2;
-                setInterval(trackLocation,500);
+                for (i=0; i<5; i++) {
+                    for (j=0; j<3; j++) {
+                        if(mouseX>=25+i*150 && mouseX<175+i*150 && mouseY>=100+j*100 && mouseY<200+j*100) {
+                            Current = 1+i+j*5;
+                            Activity = 1;
+                        }
+                    }
+                }
+                if(mouseX>=100 && mouseX<700 && mouseY>=450 && mouseY<550) {
+                    for (i=0; i<15; i++) {
+                        MachineComplete[i] = 0;
+                    }
+                }
+                if(mouseX>=100 && mouseX<700 && mouseY>=600 && mouseY<700) {
+                    window.localStorage.removeItem('MW'); 
+                    window.localStorage.removeItem('MR');
+                    window.localStorage.removeItem('MS');                    
+                    for (i=0; i<15; i++) {
+                        MachineWeight[i]=50;
+                        MachineReps[i]=15;
+                        MachineSets[i]=3;
+                    }
+                }
 
-            }            
-
-            if(Activity===0 && mouseX>=200 && mouseX<=500 && mouseY>=600 && mouseY<=700) {
-                Activity = 3;
-                getLocation();
-                getLocation();
-                setInterval(trackLocation,500);
-                Count=0;
-                totalSpeed = 0;
-                totalDistance = 0;
-                flashSpeed = 0;
-                flashDistance = 0;
-                startTrack = 0; 
-                speedDist = [];
-                speedType = 1;
             }
 
-//          DISTANCE CALCULATOR
+//          MACHINE WEIGHT SELECTION
 
             if(Activity===1 && mouseX>=100 && mouseX<=300 && mouseY>=100 && mouseY<=200) {
                 getLocation();
@@ -449,7 +365,7 @@ var Testing = function(processingInstance) {
             }
 
             if(Activity === 1) {
-                distanceActivity();
+                MachineWorkout();
             }
 
             if(Activity === 2) {
@@ -461,7 +377,7 @@ var Testing = function(processingInstance) {
             }
 
             textSize(25);
-            text("Version: "+msg,350,1050);
+            text("Version: "+msg,400,1185);
 
 
         }
