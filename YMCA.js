@@ -6,7 +6,7 @@ var Testing = function(processingInstance) {
         
         // ProgramCodeGoesHere
 
-         var msg= "02.18.22/13:30";       
+         var msg= "02.18.22/17:30";       
 
          var FirstColor = color(0, 0, 0);
          var SecondColor = color(135,10,10);
@@ -40,9 +40,6 @@ var Testing = function(processingInstance) {
          var MSp = 0;
          
 
-            window.localStorage.setItem('MW',JSON.stringify(MachineWeight));
-            window.localStorage.setItem('MR',JSON.stringify(MachineReps));
-            window.localStorage.setItem('MS',JSON.stringify(MachineSets));
 
 //      SELECT MACHINE FOR USE
         selectActivity = function() {
@@ -101,28 +98,6 @@ var Testing = function(processingInstance) {
             fill(SecondColor);
             text(MachineDesc[Current],400,75);
 
-            if(MWc<15) {
-                MWm = 5;
-                MWp = (MWc-MWm+5)/5;
-            } else {
-                MWm = MWc-10;
-                MWp = 3;
-            }
-            if(MRc<15) {
-                MRm = 5;
-                MRp = (MEc-MRm+5)/5;
-            } else {
-                MRm = MRc-10;
-                MRp = 3;
-            }
-            if(MSc<3) {
-                MSm = 1;
-                MSp = (MSc-MSm+1);
-            } else {
-                MSm = MSc-2;
-                MSp = 3;
-            }
-
             for (i=0; i<7; i++) {
                 for (j=0; j<3; j++) {
                     fill(BoxColor)
@@ -175,6 +150,29 @@ var Testing = function(processingInstance) {
                             MRc = MachineReps[Current];
                             MSc = MachineSets[Current];
                             Activity = 1;
+                            if(MWc<15) {
+                                MWm = 5;
+                                MWp = (MWc-MWm+5)/5;
+                            } else {
+                                MWm = MWc-10;
+                                MWp = 3;
+                            }
+                            if(MRc<15) {
+                                MRm = 5;
+                                MRp = (MRc-MRm+5)/5;
+                            } else {
+                                MRm = MRc-10;
+                                MRp = 3;
+                            }
+                            if(MSc<3) {
+                                MSm = 1;
+                                MSp = (MSc-MSm+1);
+                            } else {
+                                MSm = MSc-2;
+                                MSp = 3;
+                            }
+
+
                         }
                     }
                 }
@@ -200,9 +198,93 @@ var Testing = function(processingInstance) {
 
             if(Activity===1) {
 
+                for (i=1; i<6; i++) {
+                    for (j=0; j<3; j++) {
+                        if(mouseX>=50 && mouseX<=150 && mouseY>=200 && mouseY<=300) {
+                            console.log("MWm",MWm)
+                            MWm = MWm - 4 * 5;
+                            if (MWm < 5) { MWm = 5;}
+                            MWp = (MWc-MWm+5)/5;
+                            return;
+                        }                        
+                        if(mouseX>=50 && mouseX<=150 && mouseY>=400 && mouseY<=500) {
+                            MRm = MRm - 4 * 5;
+                            if (MRm < 5) { MRm = 5;}                            
+                            MRp = (MRc-MRm+5)/5;
+                            return;
+                        }                        
+                        if(mouseX>=50 && mouseX<=150 && mouseY>=600 && mouseY<=700) {
+                            MSm = MSm - 4 * 1;
+                            if (MSm < 1) { MSm = 1;}                                                        
+                            MSp = (MSc-MSm+1);
+                            return;
+                        }                        
+                        if(mouseX>=650 && mouseX<=750 && mouseY>=200 && mouseY<=300) {
+                            console.log("MWm",MWm)                            
+                            MWm = MWm + 4 * 5;
+                            MWp = (MWc-MWm+5)/5;
+                            return;
+                        }                        
+                        if(mouseX>=650 && mouseX<=750 && mouseY>=400 && mouseY<=500) {
+                            MRm = MRm + 4 * 5;                            
+                            MRp = (MRc-MRm+5)/5;
+                            return;
+                        }                        
+                        if(mouseX>=650 && mouseX<=750 && mouseY>=600 && mouseY<=700) {
+                            MSm = MSm + 4 * 1;                            
+                            MSp = (MSc-MSm+1);
+                            return;
+                        }                        
+                        if(mouseX>=50+i*100 && mouseX<=150+i*100 && mouseY>=200+j*200 && mouseY<=300+j*200) {
+                            console.log("i,j",i,j);
+                            if (j===0) {
+                                MWc = MWm + (i-1)*5;
+                                console.log("MWc, MWm",MWc,MWm);
+                                MachineWeight[Current] = MWc;
+                            }
+                            if (j===1) {
+                                MRc = MRm + (i-1)*5;
+                                console.log("MRc, MRm",MWc,MWm);
+                                MachineReps[Current] = MRc;
+                            }
+                            if (j===2) {
+                                MSc = MSm + (i-1)*1;
+                                console.log("MSc, MSm",MWc,MWm);
+                                MachineSets[Current] = MSc;
+                            }
+
+                            if(MWc<15) {
+                                MWm = 5;
+                                MWp = (MWc-MWm+5)/5;
+                            } else {
+                                MWm = MWc-10;
+                                MWp = 3;
+                            }
+                            if(MRc<15) {
+                                MRm = 5;
+                                MRp = (MRc-MRm+5)/5;
+                            } else {
+                                MRm = MRc-10;
+                                MRp = 3;
+                            }
+                            if(MSc<3) {
+                                MSm = 1;
+                                MSp = (MSc-MSm+1);
+                            } else {
+                                MSm = MSc-2;
+                                MSp = 3;
+                            }
+
+                            window.localStorage.setItem('MW',JSON.stringify(MachineWeight));
+                            window.localStorage.setItem('MR',JSON.stringify(MachineReps));
+                            window.localStorage.setItem('MS',JSON.stringify(MachineSets));
+                            return;
+                        }
+                    }
+                }
 
 
-                
+
 
                 if(mouseX>=100 && mouseX<=700 && mouseY>=800 && mouseY<=900) {
                     MachineComplete[Current] = 1;
