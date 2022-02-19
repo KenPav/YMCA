@@ -6,13 +6,14 @@ var Testing = function(processingInstance) {
         
         // ProgramCodeGoesHere
 
-         var msg= "02.18.22/17:30";       
+         var msg= "02.19.22/10:30";       
 
          var FirstColor = color(0, 0, 0);
          var SecondColor = color(135,10,10);
          var ThirdColor = color(70,50,168);
          var BoxColor = color(255,255,255);
          var SelectBoxColor = color(0,255,200);
+         var WarningColor = color(255,0,0);
          var BackColor = color(180,200,240);
          stroke(FirstColor);
          strokeWeight(2);
@@ -23,6 +24,7 @@ var Testing = function(processingInstance) {
          const MachineReps = [15,15,15,15,15,15,15,15,15,15,15,15,15,15,15];
          const MachineSets = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3];
          const MachineComplete = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+         var AreYouSure = 0;
          var Current = 0;
          var Activity = 0;
          var chkWeight = 0;
@@ -82,9 +84,20 @@ var Testing = function(processingInstance) {
             fill(BoxColor);
             rect(100,450,600,100);
             rect(100,600,600,100);
+            if(AreYouSure===1) {
+                fill(WarningColor);
+                rect(100,750,600,100);
+                fill(BoxColor);
+                rect(200,900,400,100);            
+            }
             fill(FirstColor);
             text("Clear Workout Session",400,520);
             text("Clear Weights, Reps, Sets",400,670);
+            if(AreYouSure===1) {
+                text("Confirm Deletion of",400,790);            
+                text("Weights, Reps & Sets Info",400,840);
+                text("Cancel Deletion",400,970);
+            }
         }
 
 
@@ -182,6 +195,9 @@ var Testing = function(processingInstance) {
                     }
                 }
                 if(mouseX>=100 && mouseX<=700 && mouseY>=600 && mouseY<=700) {
+                    AreYouSure = 1;
+                }
+                if(mouseX>=100 && mouseX<=700 && mouseY>=750 && mouseY<=850) {
                     window.localStorage.removeItem('MW'); 
                     window.localStorage.removeItem('MR');
                     window.localStorage.removeItem('MS');                    
@@ -190,6 +206,10 @@ var Testing = function(processingInstance) {
                         MachineReps[i]=15;
                         MachineSets[i]=3;
                     }
+                    AreYouSure = 0;
+                }
+                if(mouseX>=200 && mouseX<=600 && mouseY>=900 && mouseY<=1000) {
+                    AreYouSure = 0;
                 }
 
             }
