@@ -19,7 +19,7 @@ var Testing = function(processingInstance) {
          strokeWeight(2);
 
          const Machine = ["1","2","3","4","5","6","7","8","9","10","11","12 F","12 RD","13 AB","13 AD"];
-         const MachineDesc = ["#1 Leg Press","Machine #2","Machine #3","#4 Chest Press","#5 Overhead Press","#6 Arm Curl","#7 Arm Extension","#8 Rowing","Machine #9","#10 Leg Extension","#11 Seated Leg Curl","#12 Pectoral Fly","#12 Rear Deltoids","#13 Hip Adduction","#13 Hip Abduction"]
+         const MachineDesc = ["#1 Leg Press","Machine #2","#3 Seated Leg Curl","#4 Chest Press","#5 Overhead Press","#6 Arm Curl","#7 Arm Extension","#8 Rowing","Machine #9","#10 Leg Extension","Machine #11","#12 Pectoral Fly","#12 Rear Deltoids","#13 Hip Adduction","#13 Hip Abduction"]
          const MachineWeight = [50,50,50,50,50,50,50,50,50,50,50,50,50,50,50];
          const MachineReps = [15,15,15,15,15,15,15,15,15,15,15,15,15,15,15];
          const MachineSets = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3];
