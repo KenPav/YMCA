@@ -48,13 +48,15 @@ var Testing = function(processingInstance) {
             if(chkWeight===0) {
                 chkWeight = 1;
                 if(window.localStorage.getItem('MW')!=null) {
-                    var MW1 =JSON.parse(window.localStorage.getItem('MW'));
-                    var MR1 =JSON.parse(window.localStorage.getItem('MR'));
-                    var MS1 =JSON.parse(window.localStorage.getItem('MS'));
+                    var MW1 = JSON.parse(window.localStorage.getItem('MW'));
+                    var MR1 = JSON.parse(window.localStorage.getItem('MR'));
+                    var MS1 = JSON.parse(window.localStorage.getItem('MS'));
+                    var MC1 = JSON.parse(window.localStorage.getItem('MC'));
                     for (i=0; i<15; i++) {
                         MachineWeight[i]=Number(MW1[i]);
                         MachineReps[i]=Number(MR1[i]);
                         MachineSets[i]=Number(MS1[i]);
+                        MachineComplete[i]=Number(MC1[i]);
                     }
                 }
             }
@@ -200,11 +202,13 @@ var Testing = function(processingInstance) {
                 if(mouseX>=100 && mouseX<=700 && mouseY>=750 && mouseY<=850) {
                     window.localStorage.removeItem('MW'); 
                     window.localStorage.removeItem('MR');
-                    window.localStorage.removeItem('MS');                    
+                    window.localStorage.removeItem('MS');
+                    window.localStorage.removeItem('MC');                    
                     for (i=0; i<15; i++) {
                         MachineWeight[i]=50;
                         MachineReps[i]=15;
                         MachineSets[i]=3;
+                        MachineComplete[i]=0;
                     }
                     AreYouSure = 0;
                 }
@@ -298,6 +302,7 @@ var Testing = function(processingInstance) {
                             window.localStorage.setItem('MW',JSON.stringify(MachineWeight));
                             window.localStorage.setItem('MR',JSON.stringify(MachineReps));
                             window.localStorage.setItem('MS',JSON.stringify(MachineSets));
+
                             return;
                         }
                     }
@@ -308,6 +313,7 @@ var Testing = function(processingInstance) {
 
                 if(mouseX>=100 && mouseX<=700 && mouseY>=800 && mouseY<=900) {
                     MachineComplete[Current] = 1;
+                    window.localStorage.setItem('MC',JSON.stringify(MachineComplete));
                     Activity = 0;
                 }
                 if(mouseX>=100 && mouseX<=700 && mouseY>=950 && mouseY<=1050) {
