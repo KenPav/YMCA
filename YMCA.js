@@ -6,7 +6,7 @@ var Testing = function(processingInstance) {
         
         // ProgramCodeGoesHere
 
-         var msg= "03.11.22/13:00";       
+         var msg= "03.11.22/13:45";       
 
          var FirstColor = color(0, 0, 0);
          var SecondColor = color(135,10,10);
@@ -26,7 +26,7 @@ var Testing = function(processingInstance) {
          const MachineComplete = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
          var AreYouSure = 0;
          var Current = 0;
-         var Activity = 0;
+         var Activity = -1;
          var chkWeight = 0;
          // Machine Weight, Reps, Sets (c)urrent Value
          var MWc = 0;
@@ -42,6 +42,19 @@ var Testing = function(processingInstance) {
          var MSp = 0;
          
 
+//      CONTINUE EXISTING SESSION OR START NEW SESSION
+        oldORnew = function() {
+            background(BackColor);
+            textSize(45);
+            textAlign(CENTER);
+            fill(SelectBoxColor);
+            rect(100,100,600,100);
+            rect(100,400,600,100);
+            fill(SecondColor);
+            text("Continue Previous Workout",400,170);
+            text("Begin New Workout Session",400,470);
+        }
+
 
 //      SELECT MACHINE FOR USE
         selectActivity = function() {
@@ -51,12 +64,12 @@ var Testing = function(processingInstance) {
                     var MW1 = JSON.parse(window.localStorage.getItem('MW'));
                     var MR1 = JSON.parse(window.localStorage.getItem('MR'));
                     var MS1 = JSON.parse(window.localStorage.getItem('MS'));
-//                    var MC1 = JSON.parse(window.localStorage.getItem('MC'));
+                    var MC1 = JSON.parse(window.localStorage.getItem('MC'));
                     for (i=0; i<15; i++) {
                         MachineWeight[i]=Number(MW1[i]);
                         MachineReps[i]=Number(MR1[i]);
                         MachineSets[i]=Number(MS1[i]);
-//                        MachineComplete[i]=Number(MC1[i]);
+                        MachineComplete[i]=Number(MC1[i]);
                     }
                 }
             }
@@ -155,6 +168,21 @@ var Testing = function(processingInstance) {
 
         mouseClicked = function() {
 
+            if(Activity === -1) {
+                if(mouseX>=100 && mouseX<=700 && mouseY>=100 && mouseY<=200) {
+
+                }
+                if(mouseX>=100 && mouseX<=700 && mouseY>=400 && mouseY<=500) {
+                    for (i=0; i<15; i++) {
+                        MachineComplete[i] = 0;
+                        chkWeight = 1;
+                    }
+                }
+                Activity = 0;
+                return;
+            }
+
+
             if(Activity === 0) {
 
                 for (i=0; i<5; i++) {
@@ -215,6 +243,7 @@ var Testing = function(processingInstance) {
                 if(mouseX>=200 && mouseX<=600 && mouseY>=900 && mouseY<=1000) {
                     AreYouSure = 0;
                 }
+                return;
 
             }
 
@@ -326,6 +355,10 @@ var Testing = function(processingInstance) {
         }
 
         draw = function() {
+
+            if(Activity === -1) {
+                oldORnew();
+            }
             if(Activity === 0) {
                 selectActivity();
             }
