@@ -6,7 +6,7 @@ var Testing = function(processingInstance) {
         
         // ProgramCodeGoesHere
 
-         var msg= "03.11.22/13:45";       
+         var msg= "03.11.22/14:00";       
 
          var FirstColor = color(0, 0, 0);
          var SecondColor = color(135,10,10);
@@ -175,8 +175,8 @@ var Testing = function(processingInstance) {
                 if(mouseX>=100 && mouseX<=700 && mouseY>=400 && mouseY<=500) {
                     for (i=0; i<15; i++) {
                         MachineComplete[i] = 0;
-                        chkWeight = 1;
                     }
+                    window.localStorage.setItem('MC',JSON.stringify(MachineComplete));
                 }
                 Activity = 0;
                 return;
@@ -331,6 +331,7 @@ var Testing = function(processingInstance) {
                             window.localStorage.setItem('MW',JSON.stringify(MachineWeight));
                             window.localStorage.setItem('MR',JSON.stringify(MachineReps));
                             window.localStorage.setItem('MS',JSON.stringify(MachineSets));
+                            window.localStorage.setItem('MC',JSON.stringify(MachineComplete));
 
                             return;
                         }
