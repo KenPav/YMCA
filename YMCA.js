@@ -6,7 +6,7 @@ var Testing = function(processingInstance) {
         
         // ProgramCodeGoesHere
 
-         var msg= "02.19.22/10:30";       
+         var msg= "03.11.22/13:00";       
 
          var FirstColor = color(0, 0, 0);
          var SecondColor = color(135,10,10);
@@ -51,12 +51,12 @@ var Testing = function(processingInstance) {
                     var MW1 = JSON.parse(window.localStorage.getItem('MW'));
                     var MR1 = JSON.parse(window.localStorage.getItem('MR'));
                     var MS1 = JSON.parse(window.localStorage.getItem('MS'));
-                    var MC1 = JSON.parse(window.localStorage.getItem('MC'));
+//                    var MC1 = JSON.parse(window.localStorage.getItem('MC'));
                     for (i=0; i<15; i++) {
                         MachineWeight[i]=Number(MW1[i]);
                         MachineReps[i]=Number(MR1[i]);
                         MachineSets[i]=Number(MS1[i]);
-                        MachineComplete[i]=Number(MC1[i]);
+//                        MachineComplete[i]=Number(MC1[i]);
                     }
                 }
             }
