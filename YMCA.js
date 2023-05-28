@@ -97,21 +97,21 @@ var Testing = function(processingInstance) {
                 }
             }
             fill(BoxColor);
-            rect(100,450,600,100);
-            rect(100,600,600,100);
+            rect(100,550,600,100);
+            rect(100,700,600,100);
             if(AreYouSure===1) {
                 fill(WarningColor);
-                rect(100,750,600,100);
+                rect(100,850,600,100);
                 fill(BoxColor);
-                rect(200,900,400,100);            
+                rect(200,1000,400,100);            
             }
             fill(FirstColor);
-            text("Clear Workout Session",400,520);
-            text("Clear Weights, Reps, Sets",400,670);
+            text("Clear Workout Session",400,620);
+            text("Clear Weights, Reps, Sets",400,770);
             if(AreYouSure===1) {
-                text("Confirm Deletion of",400,790);            
-                text("Weights, Reps & Sets Info",400,840);
-                text("Cancel Deletion",400,970);
+                text("Confirm Deletion of",400,890);            
+                text("Weights, Reps & Sets Info",400,940);
+                text("Cancel Deletion",400,1070);
             }
         }
 
