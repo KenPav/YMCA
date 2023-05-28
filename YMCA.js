@@ -92,7 +92,7 @@ var Testing = function(processingInstance) {
                         fill(BoxColor);
                         rect(25+i*185,100+j*100,185,100);
                         fill(FirstColor);
-                        text(Machine[i+j*4],100+i*185,170+j*100)
+                        text(Machine[i+j*4],120+i*185,170+j*100)
                     }
                 }
             }
