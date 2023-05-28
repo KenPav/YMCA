@@ -65,7 +65,7 @@ var Testing = function(processingInstance) {
                     var MR1 = JSON.parse(window.localStorage.getItem('MR'));
                     var MS1 = JSON.parse(window.localStorage.getItem('MS'));
                     var MC1 = JSON.parse(window.localStorage.getItem('MC'));
-                    for (i=0; i<16; i++) {
+                    for (i=0; i<17; i++) {
                         MachineWeight[i]=Number(MW1[i]);
                         MachineReps[i]=Number(MR1[i]);
                         MachineSets[i]=Number(MS1[i]);
@@ -173,7 +173,7 @@ var Testing = function(processingInstance) {
 
                 }
                 if(mouseX>=100 && mouseX<=700 && mouseY>=400 && mouseY<=500) {
-                    for (i=0; i<15; i++) {
+                    for (i=0; i<16; i++) {
                         MachineComplete[i] = 0;
                     }
                     window.localStorage.setItem('MC',JSON.stringify(MachineComplete));
@@ -185,10 +185,10 @@ var Testing = function(processingInstance) {
 
             if(Activity === 0) {
 
-                for (i=0; i<5; i++) {
-                    for (j=0; j<3; j++) {
-                        if(mouseX>=25+i*150 && mouseX<=175+i*150 && mouseY>=100+j*100 && mouseY<=200+j*100) {
-                            Current = i+j*5;
+                for (i=0; i<4; i++) {
+                    for (j=0; j<4; j++) {
+                        if(mouseX>=25+i*185 && mouseX<=210+i*185 && mouseY>=100+j*100 && mouseY<=200+j*100) {
+                            Current = i+j*4;
                             MWc = MachineWeight[Current];
                             MRc = MachineReps[Current];
                             MSc = MachineSets[Current];
@@ -219,20 +219,20 @@ var Testing = function(processingInstance) {
                         }
                     }
                 }
-                if(mouseX>=100 && mouseX<=700 && mouseY>=450 && mouseY<=550) {
+                if(mouseX>=100 && mouseX<=700 && mouseY>=550 && mouseY<=650) {
                     for (i=0; i<15; i++) {
                         MachineComplete[i] = 0;
                     }
                 }
-                if(mouseX>=100 && mouseX<=700 && mouseY>=600 && mouseY<=700) {
+                if(mouseX>=100 && mouseX<=700 && mouseY>=700 && mouseY<=800) {
                     AreYouSure = 1;
                 }
-                if(mouseX>=100 && mouseX<=700 && mouseY>=750 && mouseY<=850) {
+                if(mouseX>=100 && mouseX<=700 && mouseY>=850 && mouseY<=950) {
                     window.localStorage.removeItem('MW'); 
                     window.localStorage.removeItem('MR');
                     window.localStorage.removeItem('MS');
                     window.localStorage.removeItem('MC');                    
-                    for (i=0; i<15; i++) {
+                    for (i=0; i<16; i++) {
                         MachineWeight[i]=50;
                         MachineReps[i]=15;
                         MachineSets[i]=3;
@@ -240,7 +240,7 @@ var Testing = function(processingInstance) {
                     }
                     AreYouSure = 0;
                 }
-                if(mouseX>=200 && mouseX<=600 && mouseY>=900 && mouseY<=1000) {
+                if(mouseX>=200 && mouseX<=600 && mouseY>=1000 && mouseY<=1100) {
                     AreYouSure = 0;
                 }
                 return;
