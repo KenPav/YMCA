@@ -18,12 +18,12 @@ var Testing = function(processingInstance) {
          stroke(FirstColor);
          strokeWeight(2);
 
-         const Machine = ["1","2","3","4","5","6","7","8","9","10","11","12 F","12 RD","13 AB","13 AD"];
-         const MachineDesc = ["#1 Leg Press/Toe Lift","#2 Leg Extension","#3 Seated Leg Curl","#4 Chest Press","#5 Overhead Press","#6 Arm Curl","#7 Arm Extension","#8 Row","#9 Back Extension","#10 Abdominal","#11 Pull Down","#12 Pectoral Fly","#12 Rear Deltoids","#13 Hip Abduction","#13 Hip Adduction"]
-         const MachineWeight = [50,50,50,50,50,50,50,50,50,50,50,50,50,50,50];
-         const MachineReps = [15,15,15,15,15,15,15,15,15,15,15,15,15,15,15];
-         const MachineSets = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3];
-         const MachineComplete = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+         const Machine = ["1","2","3","4 AB","4 AD","5 Fly","5 Rear","6","7","8","9","10","11","12","13","14"];
+         const MachineDesc = ["#1 Leg Press/Toe Lift","#2 Leg Extension","#3 Prone Leg Curl","#4 Hip Abduction","#4 Hip Adduction","#5 Pectoral Fly","#5 Rear Deltoids","#6 Chest Press","#7 Pull Down","#8 Overhead Press","#9 Row","#10 Arm Curl","#11 Arm Extension","#12 Back Extension","#13 Abdominal","#14 Torso Extension"]
+         const MachineWeight = [50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50];
+         const MachineReps = [15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15];
+         const MachineSets = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3];
+         const MachineComplete = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
          var AreYouSure = 0;
          var Current = 0;
          var Activity = -1;
@@ -65,7 +65,7 @@ var Testing = function(processingInstance) {
                     var MR1 = JSON.parse(window.localStorage.getItem('MR'));
                     var MS1 = JSON.parse(window.localStorage.getItem('MS'));
                     var MC1 = JSON.parse(window.localStorage.getItem('MC'));
-                    for (i=0; i<15; i++) {
+                    for (i=0; i<16; i++) {
                         MachineWeight[i]=Number(MW1[i]);
                         MachineReps[i]=Number(MR1[i]);
                         MachineSets[i]=Number(MS1[i]);
@@ -81,18 +81,18 @@ var Testing = function(processingInstance) {
             fill(SecondColor);
             text("SELECT CYBEX STATION",400,75);
 
-            for (i=0; i<5; i++) {
-                for (j=0; j<3; j++) {
-                    if (MachineComplete[i+j*5] === 1) {
+            for (i=0; i<4; i++) {
+                for (j=0; j<4; j++) {
+                    if (MachineComplete[i+j*4] === 1) {
                         fill(SelectBoxColor);
-                        rect(25+i*150,100+j*100,150,100);
+                        rect(25+i*185,100+j*100,185,100);
                         fill(FirstColor);
-                        text(Machine[i+j*5],100+i*150,170+j*100)
+                        text(Machine[i+j*4],100+i*185,170+j*100)
                     } else {
                         fill(BoxColor);
-                        rect(25+i*150,100+j*100,150,100);
+                        rect(25+i*185,100+j*100,185,100);
                         fill(FirstColor);
-                        text(Machine[i+j*5],100+i*150,170+j*100)
+                        text(Machine[i+j*4],100+i*185,170+j*100)
                     }
                 }
             }
