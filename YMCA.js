@@ -6,7 +6,7 @@ var Testing = function(processingInstance) {
         
         // ProgramCodeGoesHere
 
-         var msg= "03.11.22/14:00";       
+         var msg= "05.28.23/17:00";       
 
          var FirstColor = color(0, 0, 0);
          var SecondColor = color(135,10,10);
@@ -18,7 +18,7 @@ var Testing = function(processingInstance) {
          stroke(FirstColor);
          strokeWeight(2);
 
-         const Machine = ["1","2","3","4 AB","4 AD","5 Fly","5 Rear","6","7","8","9","10","11","12","13","14"];
+         const Machine = ["1","2","3","4 AB","4 AD","5 Fly","5 Delt","6","7","8","9","10","11","12","13","14"];
          const MachineDesc = ["#1 Leg Press/Toe Lift","#2 Leg Extension","#3 Prone Leg Curl","#4 Hip Abduction","#4 Hip Adduction","#5 Pectoral Fly","#5 Rear Deltoids","#6 Chest Press","#7 Pull Down","#8 Overhead Press","#9 Row","#10 Arm Curl","#11 Arm Extension","#12 Back Extension","#13 Abdominal","#14 Torso Extension"]
          const MachineWeight = [50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50];
          const MachineReps = [15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15];
