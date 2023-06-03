@@ -231,7 +231,7 @@ var Testing = function(processingInstance) {
                     Activity=1;
                 }
                 if(mouseX>=100 && mouseX<=700 && mouseY>=550 && mouseY<=650) {
-                    for (i=0; i<15; i++) {
+                    for (i=0; i<16; i++) {
                         MachineComplete[i] = 0;
                     }
                     SelectedMachine="";
