@@ -80,7 +80,7 @@ var Testing = function(processingInstance) {
             fill(SelectBoxColor);
             rect(50,20,700,70);
             fill(SecondColor);
-            if(SelectedMachine==="x") {
+            if(SelectedMachine==="") {
                 text("SELECT CYBEX STATION",400,75)
             } else {
                 text("Confirm: "+SelectedMachine,400,75)
@@ -197,7 +197,8 @@ var Testing = function(processingInstance) {
                             MWc = MachineWeight[Current];
                             MRc = MachineReps[Current];
                             MSc = MachineSets[Current];
-                            Activity = 1;
+                            SelectedMachine = MachineDesc[Current];
+//                            Activity = 1;
                             if(MWc<15) {
                                 MWm = 5;
                                 MWp = (MWc-MWm+5)/5;
@@ -219,10 +220,11 @@ var Testing = function(processingInstance) {
                                 MSm = MSc-2;
                                 MSp = 3;
                             }
-
-
                         }
                     }
+                }
+                if(mouseX>=50 && mouseX<=700 && mouseY>=20 && mouseY<=70) {
+                    Activity=1;
                 }
                 if(mouseX>=100 && mouseX<=700 && mouseY>=550 && mouseY<=650) {
                     for (i=0; i<15; i++) {
