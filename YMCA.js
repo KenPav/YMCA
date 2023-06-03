@@ -6,7 +6,7 @@ var Testing = function(processingInstance) {
         
         // ProgramCodeGoesHere
 
-         var msg= "05.28.23/17:00";       
+         var msg= "06.03.23/13:45";       
 
          var FirstColor = color(0, 0, 0);
          var SecondColor = color(135,10,10);
