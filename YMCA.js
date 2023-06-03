@@ -203,14 +203,14 @@ var Testing = function(processingInstance) {
                             MSc = MachineSets[Current];
                             SelectedMachine = MachineDesc[Current];
 //                            Activity = 1;
-                            if(MWc<15) {
+                            if(MWc<16) {
                                 MWm = 5;
                                 MWp = (MWc-MWm+5)/5;
                             } else {
                                 MWm = MWc-10;
                                 MWp = 3;
                             }
-                            if(MRc<15) {
+                            if(MRc<16) {
                                 MRm = 5;
                                 MRp = (MRc-MRm+5)/5;
                             } else {
@@ -234,6 +234,7 @@ var Testing = function(processingInstance) {
                     for (i=0; i<15; i++) {
                         MachineComplete[i] = 0;
                     }
+                    SelectedMachine="";
                 }
                 if(mouseX>=100 && mouseX<=700 && mouseY>=700 && mouseY<=800) {
                     AreYouSure = 1;
