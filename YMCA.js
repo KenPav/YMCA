@@ -83,6 +83,7 @@ var Testing = function(processingInstance) {
             if(SelectedMachine==="") {
                 text("SELECT CYBEX STATION",400,75)
             } else {
+                fill(ThirdColor);
                 text("Confirm: "+SelectedMachine,400,75)
             }
 
