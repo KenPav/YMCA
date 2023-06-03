@@ -6,7 +6,7 @@ var Testing = function(processingInstance) {
         
         // ProgramCodeGoesHere
 
-         var msg= "06.03.23/14:45";       
+         var msg= "06.03.23/15:00";       
 
          var FirstColor = color(0, 0, 0);
          var SecondColor = color(135,10,10);
@@ -318,14 +318,14 @@ var Testing = function(processingInstance) {
                                 MachineSets[Current] = MSc;
                             }
 
-                            if(MWc<15) {
+                            if(MWc<16) {
                                 MWm = 5;
                                 MWp = (MWc-MWm+5)/5;
                             } else {
                                 MWm = MWc-10;
                                 MWp = 3;
                             }
-                            if(MRc<15) {
+                            if(MRc<16) {
                                 MRm = 5;
                                 MRp = (MRc-MRm+5)/5;
                             } else {
