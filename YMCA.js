@@ -80,10 +80,10 @@ var Testing = function(processingInstance) {
             fill(SelectBoxColor);
             rect(50,20,700,70);
             fill(SecondColor);
-            if(SelectedMachine==="") {
+            if(SelectedMachine==="x") {
                 text("SELECT CYBEX STATION",400,75)
             } else {
-                text(SelectedMachine,400,75)
+                text("Confirm: "+SelectedMachine,400,75)
             }
 
             for (i=0; i<4; i++) {
@@ -365,6 +365,7 @@ var Testing = function(processingInstance) {
             if(Activity === -1) {
                 oldORnew();
             }
+
             if(Activity === 0) {
                 selectActivity();
             }
