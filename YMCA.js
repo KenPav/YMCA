@@ -84,7 +84,7 @@ var Testing = function(processingInstance) {
             if(SelectedMachine==="") {
                 text("SELECT CYBEX STATION",400,75)
             } else {
-                fill(confirmBoxColor);
+                fill(ConfirmBoxColor);
                 rect(50,20,700,70);
                 fill(SecondColor);
                 text("Confirm: "+SelectedMachine,400,75)
