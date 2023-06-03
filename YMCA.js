@@ -13,6 +13,7 @@ var Testing = function(processingInstance) {
          var ThirdColor = color(70,50,168);
          var BoxColor = color(255,255,255);
          var SelectBoxColor = color(0,255,200);
+         var ConfirmBoxColor = color(255,255,0)
          var WarningColor = color(255,0,0);
          var BackColor = color(180,200,240);
          stroke(FirstColor);
@@ -83,7 +84,9 @@ var Testing = function(processingInstance) {
             if(SelectedMachine==="") {
                 text("SELECT CYBEX STATION",400,75)
             } else {
-                fill(ThirdColor);
+                fill(confirmBoxColor);
+                rect(50,20,700,70);
+                fill(SecondColor);
                 text("Confirm: "+SelectedMachine,400,75)
             }
 
