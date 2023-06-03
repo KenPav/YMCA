@@ -28,6 +28,7 @@ var Testing = function(processingInstance) {
          var Current = 0;
          var Activity = -1;
          var chkWeight = 0;
+         var SelectedMachine="";
          // Machine Weight, Reps, Sets (c)urrent Value
          var MWc = 0;
          var MRc = 0;
@@ -42,7 +43,7 @@ var Testing = function(processingInstance) {
          var MSp = 0;
          
 
-//      CONTINUE EXISTING SESSION OR START NEW SESSION
+//      CONTINUE EXISTING SESSION OR START NEW SESSION Activity = -1
         oldORnew = function() {
             background(BackColor);
             textSize(45);
@@ -56,7 +57,7 @@ var Testing = function(processingInstance) {
         }
 
 
-//      SELECT MACHINE FOR USE
+//      SELECT MACHINE FOR USE Activity = 0
         selectActivity = function() {
             if(chkWeight===0) {
                 chkWeight = 1;
@@ -79,7 +80,11 @@ var Testing = function(processingInstance) {
             fill(SelectBoxColor);
             rect(50,20,700,70);
             fill(SecondColor);
-            text("SELECT CYBEX STATION",400,75);
+            if(SelectedMachine==="") {
+                text("SELECT CYBEX STATION",400,75)
+            } else {
+                text(SelectedMachine,400,75)
+            }
 
             for (i=0; i<4; i++) {
                 for (j=0; j<4; j++) {
