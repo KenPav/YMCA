@@ -6,7 +6,7 @@ var Testing = function(processingInstance) {
         
         // ProgramCodeGoesHere
 
-         var msg= "06.03.23/13:45";       
+         var msg= "06.03.23/14:45";       
 
          var FirstColor = color(0, 0, 0);
          var SecondColor = color(135,10,10);
@@ -344,17 +344,15 @@ var Testing = function(processingInstance) {
                         }
                     }
                 }
-
-
-
-
                 if(mouseX>=100 && mouseX<=700 && mouseY>=800 && mouseY<=900) {
                     MachineComplete[Current] = 1;
                     window.localStorage.setItem('MC',JSON.stringify(MachineComplete));
                     Activity = 0;
+                    SelectedMachine="";
                 }
                 if(mouseX>=100 && mouseX<=700 && mouseY>=950 && mouseY<=1050) {
                     Activity = 0;
+                    SelectedMachine="";
                 }
 
             }
