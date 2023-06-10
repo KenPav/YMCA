@@ -108,7 +108,7 @@ var Testing = function(processingInstance) {
             fill(BoxColor);
             rect(100,550,600,100);
             rect(100,700,600,100);
-            if(AreYouSure===1) {
+            if(AreYouSure>0) {
                 fill(WarningColor);
                 rect(100,850,600,100);
                 fill(BoxColor);
@@ -122,7 +122,11 @@ var Testing = function(processingInstance) {
                 text("Weights, Reps & Sets Info",400,940);
                 text("Cancel Deletion",400,1070);
             }
-        }
+            if(AreYouSure===2) {
+                text("Confirm Clearing of",400,890);            
+                text("Workout Session",400,940);
+                text("Cancel Clearing",400,1070);
+            }        }
 
 
 //      INDIVIDUAL MACHINE WORKOUT
@@ -231,15 +235,21 @@ var Testing = function(processingInstance) {
                     Activity=1;
                 }
                 if(mouseX>=100 && mouseX<=700 && mouseY>=550 && mouseY<=650) {
-                    for (i=0; i<16; i++) {
-                        MachineComplete[i] = 0;
+                    if(AreYouSure===0) {
+                        AreYouSure = 2;
+                    }
+                    if(AreYouSure===2) {
+                        for (i=0; i<16; i++) {
+                            MachineComplete[i] = 0;
+                        }
+                        AreYouSure = 0;
                     }
                     SelectedMachine="";
                 }
                 if(mouseX>=100 && mouseX<=700 && mouseY>=700 && mouseY<=800) {
                     AreYouSure = 1;
                 }
-                if(mouseX>=100 && mouseX<=700 && mouseY>=850 && mouseY<=950) {
+                if(mouseX>=100 && mouseX<=700 && mouseY>=850 && mouseY<=950 && AreYouSure===1) {
                     window.localStorage.removeItem('MW'); 
                     window.localStorage.removeItem('MR');
                     window.localStorage.removeItem('MS');
