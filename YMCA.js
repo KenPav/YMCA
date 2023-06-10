@@ -234,13 +234,6 @@ var Testing = function(processingInstance) {
                 if(mouseX>=50 && mouseX<=700 && mouseY>=20 && mouseY<=70) {
                     Activity=1;
                 }
-                if(mouseX>=100 && mouseX<=700 && mouseY>=850 && mouseY<=950 && AreYouSure===2) {
-                    for (i=0; i<16; i++) {
-                        MachineComplete[i] = 0;
-                    }
-                    AreYouSure = 0;
-                    SelectedMachine="";
-                }
                 if(mouseX>=100 && mouseX<=700 && mouseY>=550 && mouseY<=650) {
                     AreYouSure = 2;
                 }
@@ -259,6 +252,13 @@ var Testing = function(processingInstance) {
                         MachineComplete[i]=0;
                     }
                     AreYouSure = 0;
+                }
+                if(mouseX>=100 && mouseX<=700 && mouseY>=850 && mouseY<=950 && AreYouSure===2) {
+                    for (i=0; i<16; i++) {
+                        MachineComplete[i] = 0;
+                    }
+                    AreYouSure = 0;
+                    SelectedMachine="";
                 }
                 if(mouseX>=200 && mouseX<=600 && mouseY>=1000 && mouseY<=1100) {
                     AreYouSure = 0;
