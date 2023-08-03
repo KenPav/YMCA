@@ -6,14 +6,15 @@ var Testing = function(processingInstance) {
         
         // ProgramCodeGoesHere
 
-         var msg= "06.10.23/13:00";       
+         var msg= "08.03.23/12:30";       
 
          var FirstColor = color(0, 0, 0);
          var SecondColor = color(135,10,10);
          var ThirdColor = color(70,50,168);
          var BoxColor = color(255,255,255);
          var SelectBoxColor = color(0,255,200);
-         var ConfirmBoxColor = color(255,255,0)
+         var ConfirmBoxColor = color(255,255,0);
+         var eGymBoxColor = (255,64,0);
          var WarningColor = color(255,0,0);
          var BackColor = color(180,200,240);
          stroke(FirstColor);
@@ -102,8 +103,9 @@ var Testing = function(processingInstance) {
 //   Check eGym add-on routine
                         k = j*4+i;
                         if((k > 1 & k < 7) || k > 13) {
-                            fill(ConfirmBoxColor);
+                            fill(cGymBoxColor);
                         }
+//
                         rect(25+i*185,100+j*100,185,100);
                         fill(FirstColor);
                         text(Machine[i+j*4],120+i*185,170+j*100);
