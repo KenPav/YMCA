@@ -125,7 +125,8 @@ var Testing = function(processingInstance) {
                 fill(eGymBoxColor);
                 rect(100,850,600,100);
                 fill(FirstColor);
-                text("eGym Add-On Routines",400,870);
+                text("Note: These Machines Are",400,890)
+                text("eGym Add-On Routines",400,940);
             }
             fill(FirstColor);
             text("Clear Workout Session",400,620);
