@@ -6,7 +6,7 @@ var Testing = function(processingInstance) {
         
         // ProgramCodeGoesHere
 
-         var msg= "08.03.23/12:30";       
+         var msg= "08.03.23/16:00";       
 
          var FirstColor = color(0, 0, 0);
          var SecondColor = color(135,10,10);
@@ -120,6 +120,12 @@ var Testing = function(processingInstance) {
                 rect(100,850,600,100);
                 fill(BoxColor);
                 rect(200,1000,400,100);            
+            }
+            if(AreYouSure === 0) {
+                fill(eGymBoxColor);
+                rect(100,850,600,100);
+                fill(FirstColor);
+                text("eGym Add-On Routines",400,870);
             }
             fill(FirstColor);
             text("Clear Workout Session",400,620);
