@@ -103,7 +103,7 @@ var Testing = function(processingInstance) {
 //   Check eGym add-on routine
                         k = j*4+i;
                         if((k > 1 & k < 7) || k > 13) {
-                            fill(cGymBoxColor);
+                            fill(eGymBoxColor);
                         }
 //
                         rect(25+i*185,100+j*100,185,100);
