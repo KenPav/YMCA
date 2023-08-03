@@ -87,7 +87,7 @@ var Testing = function(processingInstance) {
                 fill(ConfirmBoxColor);
                 rect(50,20,700,70);
                 fill(SecondColor);
-                text("Confirm: "+SelectedMachine,400,75)
+                text("Confirm: "+SelectedMachine,400,75);
             }
 
             for (i=0; i<4; i++) {
@@ -99,9 +99,14 @@ var Testing = function(processingInstance) {
                         text(Machine[i+j*4],100+i*185,170+j*100)
                     } else {
                         fill(BoxColor);
+//   Check eGym add-on routine
+                        k = i*4+j;
+                        if((k > 1 & k < 7) !! k > 13) {
+                            fill(ConfirmBoxColor);
+                        }
                         rect(25+i*185,100+j*100,185,100);
                         fill(FirstColor);
-                        text(Machine[i+j*4],120+i*185,170+j*100)
+                        text(Machine[i+j*4],120+i*185,170+j*100);
                     }
                 }
             }
