@@ -101,7 +101,7 @@ var Testing = function(processingInstance) {
                         fill(BoxColor);
 //   Check eGym add-on routine
                         k = i*4+j;
-                        if((k > 1 & k < 7) !! k > 13) {
+                        if((k > 1 & k < 7) || k > 13) {
                             fill(ConfirmBoxColor);
                         }
                         rect(25+i*185,100+j*100,185,100);
