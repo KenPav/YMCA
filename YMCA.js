@@ -14,7 +14,7 @@ var Testing = function(processingInstance) {
          var BoxColor = color(255,255,255);
          var SelectBoxColor = color(0,255,200);
          var ConfirmBoxColor = color(255,255,0);
-         var eGymBoxColor = color(255,102,102);
+         var eGymBoxColor = color(255,230,230);
          var WarningColor = color(255,0,0);
          var BackColor = color(180,200,240);
          stroke(FirstColor);
