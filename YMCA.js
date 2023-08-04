@@ -6,7 +6,7 @@ var Testing = function(processingInstance) {
         
         // ProgramCodeGoesHere
 
-         var msg= "08.03.23/16:00";       
+         var msg= "08.04.23/10:00";       
 
          var FirstColor = color(0, 0, 0);
          var SecondColor = color(135,10,10);
@@ -14,7 +14,7 @@ var Testing = function(processingInstance) {
          var BoxColor = color(255,255,255);
          var SelectBoxColor = color(0,255,200);
          var ConfirmBoxColor = color(255,255,0);
-         var eGymBoxColor = color(255,230,230);
+         var eGymBoxColor = color(255,200,200);
          var WarningColor = color(255,0,0);
          var BackColor = color(180,200,240);
          stroke(FirstColor);
